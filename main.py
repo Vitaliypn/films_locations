@@ -48,10 +48,8 @@ def main(year, coord1, coord2, path):
                     if '(' in location:
                         location = location[:location.index('(')].strip()
                     adress = geocode(location)
-                    print(location)
                     if adress is not None:
                         distance = haversine((coord1, coord2), (adress.latitude,adress.longitude))
-                        print(distance)
                         years.append([distance,adress.latitude,adress.longitude,\
                             location, film_name.replace('\\','').replace('\\x','').replace('"','')])
     return markers(dictionary(years), coord1, coord2, year)
